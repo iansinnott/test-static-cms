@@ -9,7 +9,7 @@ sections:
   label: 活動
   create: all
   match: "*.zh.en"
-  new_doc_ext: zh.md
+  new_doc_ext: ".zh.md"
 - type: directory
   path: content
   label: Pages
