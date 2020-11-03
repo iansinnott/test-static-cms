@@ -5,6 +5,12 @@ admin_path:
 webhook_url: 
 sections:
 - type: directory
+  path: content/events
+  label: 活動
+  create: all
+  match: "*.zh.en"
+  new_doc_ext: ".zh.md"
+- type: directory
   path: content
   label: Pages
   create: all
