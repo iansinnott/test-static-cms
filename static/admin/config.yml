@@ -1,14 +1,14 @@
-# backend:
-#     name: git-gateway
-#     branch: master # Branch to update (optional; defaults to master)
+backend:
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
 
 # Auth directly with github
 # SEE https://www.netlifycms.org/docs/backends-overview/
 # NOTE I'm not sure exactly what site_domain is required for.
-backend:
-  name: github
-  repo: iansinnott/test-static-cms
-  # site_domain: test.iansinnott.com # See NOTE
+# backend:
+#   name: github
+#   repo: iansinnott/test-static-cms
+# site_domain: test.iansinnott.com # See NOTE
 
 # Customize the logo that displays on the sign-in page (just found this logo via web search)
 logo_url: "https://www.iansinnott.com/static/face.d87f5f1d.png"
