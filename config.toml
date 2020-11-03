@@ -1,3 +1,11 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
+theme = "ananke"
 title = "My New Hugo Site"
+[languages]
+[languages.en]
+languageName = "English"
+weight = 1
+[languages.zh]
+languageName = "中文"
+weight = 2
