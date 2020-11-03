@@ -6,6 +6,20 @@ webhook_url:
 sections:
 - type: directory
   path: content/events
+  label: Events (zh)
+  create: all
+  match: "*.zh.md"
+  new_doc_ext: ".zh.md"
+  templates:
+  - blog-post
+- type: directory
+  path: content/events
+  label: Events (en)
+  create: all
+  match: "*.en.md"
+  new_doc_ext: ".en.md"
+- type: directory
+  path: content/events
   label: 活動
   create: all
   match: "*.zh.en"
@@ -30,6 +44,8 @@ sections:
   label: En
   create: all
   match: "**/*"
+  templates:
+  - blog-post
 upload_dir: static/uploads
 public_path: "/uploads"
 front_matter_path: ''
