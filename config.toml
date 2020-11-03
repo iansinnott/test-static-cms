@@ -2,12 +2,10 @@ baseURL = "http://example.org/"
 theme = "ananke"
 [languages]
 [languages.en]
-contentDir = "content/en"
 languageName = "English"
 title = "My Blog"
 weight = 1
 [languages.zh]
-contentDir = "content/zh"
 languageName = "中文"
 title = "朕的部落格"
 weight = 2
