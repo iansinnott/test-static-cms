@@ -1,0 +1,94 @@
+# backend:
+#     name: git-gateway
+#     branch: master # Branch to update (optional; defaults to master)
+
+# Auth directly with github
+# SEE https://www.netlifycms.org/docs/backends-overview/
+# NOTE I'm not sure exactly what site_domain is required for.
+backend:
+  name: github
+  repo: iansinnott/test-static-cms
+  # site_domain: test.iansinnott.com # See NOTE
+
+# Customize the logo that displays on the sign-in page (just found this logo via web search)
+logo_url: "https://www.iansinnott.com/static/face.d87f5f1d.png"
+
+# On local host use local backend. Must run `npx netlify-cms-proxy-server` for this to work.
+local_backend: true
+
+i18n:
+  # Required and can be one of multiple_folders, multiple_files or single_file
+  # multiple_folders - persists files in `<folder>/<locale>/<slug>.<extension>`
+  # multiple_files - persists files in `<folder>/<slug>.<locale>.<extension>`
+  # single_file - persists a single file in `<folder>/<slug>.<extension>`
+  # structure: multiple_files
+  structure: multiple_folders
+
+  # Required - a list of locales to show in the editor UI
+  locales: [en, zh]
+
+  # Optional, defaults to the first item in locales.
+  # The locale to be used for fields validation and as a baseline for the entry.
+  default_locale: en
+
+# Require posts to be "ready" before finally publishing them
+# publish_mode: editorial_workflow
+
+# Media files will be stored in the repo under static/img/uploads
+media_folder: "static/img/uploads"
+
+# The src attribute for uploaded media will begin with /images/uploads
+public_folder: "/img/uploads"
+
+# The various collections we use for the site. They correspond to directories of content
+collections:
+  # Top-level pages
+  - name: "pages"
+    label: "Pages"
+    folder: "content"
+    create: true
+    slug: "{{slug}}"
+    i18n: true
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "single", i18n: duplicate }
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Publish Date", name: "date", widget: "datetime", i18n: duplicate }
+      - { label: "Draft?", name: "draft", widget: "boolean", default: true, i18n: duplicate }
+      - { label: "Hidden?", name: "hidden", widget: "boolean", default: false, i18n: duplicate }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }
+
+  - name: "posts"
+    label: "Posts"
+    folder: "content/{{locale}}/posts"
+    create: true
+    slug: "{{slug}}"
+    i18n: true
+    # SEE https://www.netlifycms.org/docs/widgets#boolean
+    # For notes on the i18n support:
+    # SEE # https://www.netlifycms.org/docs/beta-features/#i18n-support
+    # The field-level i18n config shoudl be true|duplicate or omitted.
+    # Omitting it will cause the field not to be copied over., so that's
+    # probably not wnat is desired.
+    fields: # The fields for each document, usually in front matter
+      - { label: "Layout", name: "layout", widget: "hidden", default: "blog", i18n: duplicate }
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Publish Date", name: "date", widget: "datetime", i18n: duplicate }
+      - { label: "Draft?", name: "draft", widget: "boolean", default: false, i18n: duplicate }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }
+
+  # # Configure the site. Menus for example
+  # - name: 'config'
+  #   label: 'Config'
+  #   editor:
+  #       preview: false
+  #   files:
+  #       - label: 'Navigation'
+  #         name: 'navigation'
+  #         file: 'data/navigation.yml'
+  #         fields:
+  #             - label: 'Navigation Items'
+  #               name: 'items'
+  #               widget: 'list'
+  #               fields:
+  #                   - { label: Name, name: name, widget: string }
+  #                   - { label: Link, name: link, widget: string }
