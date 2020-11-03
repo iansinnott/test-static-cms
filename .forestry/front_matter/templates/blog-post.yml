@@ -10,3 +10,4 @@ fields:
   label: date
 pages:
 - content/events/new-event.en.md
+- content/events/new-event.zh.md
