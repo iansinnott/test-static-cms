@@ -9,7 +9,7 @@ sections:
   label: Events (zh)
   create: all
   match: "*.zh.md"
-  new_doc_ext: ".zh.md"
+  new_doc_ext: zh.md
   templates:
   - blog-post
 - type: directory
@@ -17,13 +17,13 @@ sections:
   label: Events (en)
   create: all
   match: "*.en.md"
-  new_doc_ext: ".en.md"
+  new_doc_ext: en.md
 - type: directory
   path: content/events
   label: 活動
   create: all
   match: "*.zh.en"
-  new_doc_ext: ".zh.md"
+  new_doc_ext: zh.md
 - type: directory
   path: content
   label: Pages
